@@ -1,0 +1,236 @@
+<stg><name>multi_apuint</name>
+
+
+<trans_list>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="2" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="4" bw="0" op_0_bw="0" op_1_bw="8">
+<![CDATA[
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i8 %multi_in0_V), !map !37
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="3" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="0" op_0_bw="0" op_1_bw="8">
+<![CDATA[
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i8 %multi_in1_V), !map !43
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="4" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="6" bw="0" op_0_bw="0" op_1_bw="16">
+<![CDATA[
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i16* %multi_out_V), !map !47
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="5" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="7" bw="0" op_0_bw="0" op_1_bw="0">
+<![CDATA[
+:3  call void (...)* @_ssdm_op_SpecTopModule([13 x i8]* @multi_apuint_str) nounwind
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="6" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="8" bw="8" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:4  %multi_in1_V_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %multi_in1_V)
+
+]]></Node>
+<StgValue><ssdm name="multi_in1_V_read"/></StgValue>
+</operation>
+
+<operation id="7" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="9" bw="8" op_0_bw="8" op_1_bw="8">
+<![CDATA[
+:5  %multi_in0_V_read = call i8 @_ssdm_op_Read.ap_auto.i8(i8 %multi_in0_V)
+
+]]></Node>
+<StgValue><ssdm name="multi_in0_V_read"/></StgValue>
+</operation>
+
+<operation id="8" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="10" bw="16" op_0_bw="8">
+<![CDATA[
+:6  %lhs_V = zext i8 %multi_in0_V_read to i16
+
+]]></Node>
+<StgValue><ssdm name="lhs_V"/></StgValue>
+</operation>
+
+<operation id="9" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="11" bw="16" op_0_bw="8">
+<![CDATA[
+:7  %rhs_V = zext i8 %multi_in1_V_read to i16
+
+]]></Node>
+<StgValue><ssdm name="rhs_V"/></StgValue>
+</operation>
+
+<operation id="10" st_id="1" stage="1" lat="1">
+<core>Mul</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="12" bw="16" op_0_bw="16" op_1_bw="16">
+<![CDATA[
+:8  %r_V = mul i16 %rhs_V, %lhs_V
+
+]]></Node>
+<StgValue><ssdm name="r_V"/></StgValue>
+</operation>
+
+<operation id="11" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="13" bw="0" op_0_bw="0" op_1_bw="16" op_2_bw="16">
+<![CDATA[
+:9  call void @_ssdm_op_Write.ap_auto.i16P(i16* %multi_out_V, i16 %r_V)
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="12" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="14" bw="0">
+<![CDATA[
+:10  ret void
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="13" name="multi_in0_V" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="multi_in0_V"/></StgValue>
+</port>
+<port id="14" name="multi_in1_V" dir="0" iftype="0">
+<core>NULL</core><StgValue><ssdm name="multi_in1_V"/></StgValue>
+</port>
+<port id="15" name="multi_out_V" dir="1" iftype="0">
+<core>NULL</core><StgValue><ssdm name="multi_out_V"/></StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="17" from="_ssdm_op_SpecBitsMap" to="StgValue_2" fromId="16" toId="2">
+</dataflow>
+<dataflow id="18" from="multi_in0_V" to="StgValue_2" fromId="13" toId="2">
+</dataflow>
+<dataflow id="19" from="_ssdm_op_SpecBitsMap" to="StgValue_3" fromId="16" toId="3">
+</dataflow>
+<dataflow id="20" from="multi_in1_V" to="StgValue_3" fromId="14" toId="3">
+</dataflow>
+<dataflow id="21" from="_ssdm_op_SpecBitsMap" to="StgValue_4" fromId="16" toId="4">
+</dataflow>
+<dataflow id="22" from="multi_out_V" to="StgValue_4" fromId="15" toId="4">
+</dataflow>
+<dataflow id="24" from="_ssdm_op_SpecTopModule" to="StgValue_5" fromId="23" toId="5">
+</dataflow>
+<dataflow id="26" from="multi_apuint_str" to="StgValue_5" fromId="25" toId="5">
+</dataflow>
+<dataflow id="28" from="_ssdm_op_Read.ap_auto.i8" to="multi_in1_V_read" fromId="27" toId="6">
+</dataflow>
+<dataflow id="29" from="multi_in1_V" to="multi_in1_V_read" fromId="14" toId="6">
+</dataflow>
+<dataflow id="30" from="_ssdm_op_Read.ap_auto.i8" to="multi_in0_V_read" fromId="27" toId="7">
+</dataflow>
+<dataflow id="31" from="multi_in0_V" to="multi_in0_V_read" fromId="13" toId="7">
+</dataflow>
+<dataflow id="32" from="multi_in0_V_read" to="lhs_V" fromId="7" toId="8">
+</dataflow>
+<dataflow id="33" from="multi_in1_V_read" to="rhs_V" fromId="6" toId="9">
+</dataflow>
+<dataflow id="34" from="rhs_V" to="r_V" fromId="9" toId="10">
+</dataflow>
+<dataflow id="35" from="lhs_V" to="r_V" fromId="8" toId="10">
+</dataflow>
+<dataflow id="37" from="_ssdm_op_Write.ap_auto.i16P" to="StgValue_11" fromId="36" toId="11">
+</dataflow>
+<dataflow id="38" from="multi_out_V" to="StgValue_11" fromId="15" toId="11">
+</dataflow>
+<dataflow id="39" from="r_V" to="StgValue_11" fromId="10" toId="11">
+</dataflow>
+</dataflows>
+
+
+</stg>

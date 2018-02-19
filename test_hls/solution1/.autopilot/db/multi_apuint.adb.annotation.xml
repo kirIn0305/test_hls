@@ -1,0 +1,5 @@
+<annotationInfo>
+<item  id="10" filename="src_c/multi_apuint.cpp" linenumber="6" name="lhs_V" contextFuncName="multi_apuint" moduleName="multi_apuint" rtlName="r_V_fu_43_p10" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="/home/kamui/Documents/xilinx/test_hls"></item>
+<item  id="11" filename="src_c/multi_apuint.cpp" linenumber="6" name="rhs_V" contextFuncName="multi_apuint" moduleName="multi_apuint" rtlName="r_V_fu_43_p00" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="/home/kamui/Documents/xilinx/test_hls"></item>
+<item  id="12" filename="src_c/multi_apuint.cpp" linenumber="6" name="r_V" contextFuncName="multi_apuint" moduleName="multi_apuint" rtlName="multi_out_V" latency="0" BRAM="-1" DSP="0" FF="0" LUT="41" fileDirectory="/home/kamui/Documents/xilinx/test_hls"></item>
+</annotationInfo>
